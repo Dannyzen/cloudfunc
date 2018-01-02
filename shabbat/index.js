@@ -11,6 +11,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// Yanked the base of this from the dialogflow-webhook-tempalte-nodejs (what a mouthful) repo. It's barebones enough to reproduce on. Just note the actionmap handling as it maps to the intent's name
+
 'use strict';
 
 process.env.DEBUG = 'actions-on-google:*';
@@ -34,6 +36,7 @@ exports.yourAction = functions.https.onRequest((request, response) => {
   }
 
   function getShabbatTime (zip) {
+    // LOL this isnt python. I need help
    var a = ext_request('http://www.hebcal.com/shabbat/?cfg=json&zip=11803', function (error, response, data) { body = JSON.parse(data); ;} );
    return a.location
   }
